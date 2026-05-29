@@ -1,0 +1,8 @@
+# Output directory
+.siakam_out/
+
+# Test fixtures
+test_fixtures/
+
+# OMC state
+.omc/
