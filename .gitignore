@@ -6,3 +6,4 @@ test_fixtures/
 
 # OMC state
 .omc/
+.claude/
