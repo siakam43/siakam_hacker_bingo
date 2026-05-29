@@ -91,7 +91,7 @@ When you find a vulnerability, write it down immediately in the findings file be
 If you are unsure whether something is exploitable, do NOT report it. A false positive is worse than a missed theoretical issue. Each finding must be something you would confidently raise in a PR review.
 
 ### Rule 5: One Finding Per Vulnerability
-Do not split the same root cause into multiple findings. If the same pattern appears in multiple places, report each instance once at its first occurrence. Do not report the same NULL pointer dereference from multiple call sites if the root cause is the same missing check.
+Do not split the same root cause into multiple findings. If the same pattern appears in multiple places, report it once at its first occurrence. Do not report the same NULL pointer dereference from multiple call sites if the root cause is the same missing check.
 
 ### Rule 6: Code as Written
 Analyze the code as it IS, not as it could be. Do not speculate: "if the caller passes X then Y could happen" — only report issues where the code path is actually reachable with attacker-controlled input.

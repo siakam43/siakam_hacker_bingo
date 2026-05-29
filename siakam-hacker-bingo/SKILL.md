@@ -84,9 +84,9 @@ While there are tasks with status `pending`:
 4. **Wait for completion:** All sub-agents in the batch must finish before the next batch starts.
 
 5. **Verify and mark done:** For each completed sub-agent:
-   - Confirm the findings file exists at `<project_dir>/.siakam_out/BINGO/findings/task-<ID>-findings.md`
-   - If the file is missing, re-run that sub-agent once
-   - If the file exists, mark the task status as `done` in task-list.md
+   - Confirm the findings file exists at `<project_dir>/.siakam_out/BINGO/findings/task-<ID>-findings.md` and is non-empty
+   - If the file is missing or empty, re-run that sub-agent once
+   - If the file exists and is non-empty, mark the task status as `done` in task-list.md
    - Update `Completed` and `Remaining` counts and `Last updated` timestamp
 
 6. **Repeat** until all tasks are `done`.
