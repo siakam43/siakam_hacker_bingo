@@ -1,6 +1,6 @@
 ---
 name: siakam-hacker-bingo
-description: Use when the user invokes /siakam-hacker-bingo or asks to perform a security audit of C source code (.c/.h files) in a project directory, focusing on embedded/systems-level vulnerabilities (kernel drivers, boot chain, firmware). Triggers on requests to find security bugs in C codebases, analyze C files for vulnerabilities, or audit low-level C projects for memory safety, input validation, crypto, race condition, or system security issues.
+description: Use when the user invokes /siakam-hacker-bingo or asks to perform a security audit of C source code (.c files) in a project directory, focusing on embedded/systems-level vulnerabilities (kernel drivers, boot chain, firmware). Triggers on requests to find security bugs in C codebases, analyze C files for vulnerabilities, or audit low-level C projects for memory safety, input validation, crypto, race condition, or system security issues.
 ---
 
 # siakam-hacker-bingo
@@ -41,7 +41,7 @@ Before starting a fresh scan, check whether `<project_dir>/.siakam_out/BINGO/tas
 
 ### Step 2: Scan and Create Task List
 
-1. **Enumerate source files:** Run `find <project_dir> -type f \( -name "*.c" -o -name "*.h" \)` to list all C source and header files.
+1. **Enumerate source files:** Run `find <project_dir> -type f -name "*.c"` to list all C source files.
 
 2. **Apply .siakamignore:** If `<project_dir>/.siakamignore` exists, read it and exclude files matching its patterns. The file uses gitignore syntax:
    - Each line is a glob pattern relative to `project_dir`

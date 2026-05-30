@@ -57,6 +57,6 @@ Each task's file list goes in `<project_dir>/.siakam_out/BINGO/file-list/task-<I
 ```markdown
 # Task <ID> Files — <directory>
 1. `path/to/file1.c`
-2. `path/to/file2.h`
+2. `path/to/file2.c`
 3. `path/to/file3.c`
 ```
