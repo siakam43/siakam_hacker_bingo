@@ -33,7 +33,7 @@ Your vulnerability findings, however, MUST only cover files explicitly listed in
 
 Use the **Write** tool to create `<project_dir>/.siakam_out/BINGO/findings/task-<ID>-findings.md`.
 
-Follow the format in `finding-output-template.md` exactly.
+Follow the format in `finding-output-template.md` exactly. This file is in the skill directory.
 
 **This step is mandatory.** The findings file must exist and be non-empty before you finish. If the Write call fails, retry it. A missing file means the task failed.
 

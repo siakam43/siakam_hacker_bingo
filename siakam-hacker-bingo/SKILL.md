@@ -15,6 +15,16 @@ Set at the top of this file. Edit to adjust behavior.
 CONCURRENCY = 2   # Number of sub-agents running in parallel
 ```
 
+## Helper Files
+
+The following files are in the **same directory as this SKILL.md**:
+
+- `sub-agent-prompt.md` — the full sub-agent analysis prompt
+- `task-list-template.md` — format for the task list checkpoint file
+- `finding-output-template.md` — format for per-task findings output
+
+When you need to read one of these files, look in the skill directory — **not** in the target project directory.
+
 ## Usage
 
 ```
@@ -64,7 +74,7 @@ Before starting a fresh scan, check whether `<project_dir>/.siakam_out/BINGO/tas
 
 5. **Write file lists:** For each task, write the list of files to `<project_dir>/.siakam_out/BINGO/file-list/task-<ID>-files.md`. One file path per line, relative to `project_dir`. Use backtick-quoted paths.
 
-6. **Write task-list.md:** Create the checkpoint file at `<project_dir>/.siakam_out/BINGO/task-list.md`. Follow the format in `task-list-template.md`. All tasks start with status `pending`.
+6. **Write task-list.md:** Create the checkpoint file at `<project_dir>/.siakam_out/BINGO/task-list.md`. Follow the format in `task-list-template.md` (in the skill directory). All tasks start with status `pending`.
 
 ### Step 3: Dispatch Loop
 
@@ -77,9 +87,11 @@ While there are tasks with status `pending`:
 3. **Dispatch sub-agents:** For each task, launch a sub-agent using the `Agent` tool with:
    - `description`: Short description like "Security analysis of <directory>"
    - `subagent_type`: `general-purpose`
-   - `prompt`: The exact content from `sub-agent-prompt.md`, with the file list inserted and `<project_dir>` / `<ID>` replaced with actual values.
+   - `prompt`: The exact content from `sub-agent-prompt.md` (in the skill directory), with the file list inserted and `<project_dir>` / `<ID>` replaced with actual values.
 
    **CRITICAL:** Dispatch all `CONCURRENCY` sub-agents in parallel in a single message. Each sub-agent call is independent — they do not share state.
+
+   Before sending the prompt, replace the reference to `finding-output-template.md` with the actual path to the file in the skill directory (e.g., `siakam-hacker-bingo/finding-output-template.md`).
 
 4. **Wait for completion:** All sub-agents in the batch must finish before the next batch starts.
 
