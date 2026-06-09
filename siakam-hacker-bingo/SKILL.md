@@ -12,7 +12,7 @@ Security vulnerability analysis for C codebases using parallel sub-agents with c
 Set at the top of this file. Edit to adjust behavior.
 
 ```
-CONCURRENCY = 2   # Number of sub-agents running in parallel
+CONCURRENCY = 3   # Number of sub-agents running in parallel
 ```
 
 ## Helper Files
