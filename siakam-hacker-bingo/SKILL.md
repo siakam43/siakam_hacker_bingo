@@ -36,9 +36,22 @@ If `project_dir` is omitted, defaults to the current working directory.
 ## Workflow
 
 ```
-SCAN → TASK LIST → DISPATCH LOOP → AGGREGATE
-  │                    │
-  └── .siakamignore    └── RESUME: skip done, re-run in_progress
+        RESUME?
+   (task-list.md exists?)
+      │           │
+     YES          NO
+      │            │
+      │       .siakamignore
+      │            │
+      │          SCAN
+      │            │
+      │        TASK LIST
+      │            │
+      └────────────┘
+            │
+      DISPATCH LOOP
+            │
+        AGGREGATE
 ```
 
 ### Step 1: Check for Resume
