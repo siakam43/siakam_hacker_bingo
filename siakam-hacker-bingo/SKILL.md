@@ -70,6 +70,8 @@ Before starting a fresh scan, check whether `<project_dir>/.siakam_out/BINGO/tas
 
 While there are tasks with status `pending`:
 
+Keep dispatching until the task list contains **zero** `pending` tasks. Do not stop early. Do not report "done" while any task is still `pending` or `in_progress`.
+
 1. **Pick tasks:** Take up to `CONCURRENCY` tasks with status `pending` from the task list (in order by ID).
 
 2. **Mark in_progress:** Update each task's status to `in_progress` in task-list.md. Update the `Last updated` timestamp.
@@ -89,7 +91,9 @@ While there are tasks with status `pending`:
    - If the file exists and is non-empty, mark the task status as `done` in task-list.md
    - Update `Completed` and `Remaining` counts and `Last updated` timestamp
 
-6. **Repeat** until all tasks are `done`.
+6. **Check remaining tasks:** Re-read `task-list.md` and count tasks with status `pending`.
+   - If any `pending` tasks remain: go back to step 1 immediately. **Do not stop or report completion.**
+   - If all tasks are `done`: exit the dispatch loop and proceed to Step 4 (Aggregate Results).
 
 ### Step 4: Aggregate Results
 

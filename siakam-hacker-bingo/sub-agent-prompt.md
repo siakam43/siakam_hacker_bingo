@@ -12,6 +12,8 @@ Analyze the files listed below for security vulnerabilities. For each **assigned
 
 You MAY browse other files in `<project_dir>` to understand context — see "Reading Scope vs. Analysis Scope" below.
 
+When analysis is complete, you MUST use the Write tool to save your findings. See "Output" section for the full requirements.
+
 ## Files to Analyze
 
 <INSERT FILE LIST HERE — one file path per line>
@@ -29,7 +31,11 @@ Your vulnerability findings, however, MUST only cover files explicitly listed in
 
 ## Output
 
-Write your findings to `<project_dir>/.siakam_out/BINGO/findings/task-<ID>-findings.md` using the format defined in `finding-output-template.md`.
+Use the **Write** tool to create `<project_dir>/.siakam_out/BINGO/findings/task-<ID>-findings.md`.
+
+Follow the format in `finding-output-template.md` exactly.
+
+**This step is mandatory.** The findings file must exist and be non-empty before you finish. If the Write call fails, retry it. A missing file means the task failed.
 
 ## Scope — What to Look For
 
