@@ -70,8 +70,6 @@ Before starting a fresh scan, check whether `<project_dir>/.siakam_out/BINGO/tas
 
 While there are tasks with status `pending`:
 
-Keep dispatching until the task list contains **zero** `pending` tasks. Do not stop early. Do not report "done" while any task is still `pending` or `in_progress`.
-
 1. **Pick tasks:** Take up to `CONCURRENCY` tasks with status `pending` from the task list (in order by ID).
 
 2. **Mark in_progress:** Update each task's status to `in_progress` in task-list.md. Update the `Last updated` timestamp.
