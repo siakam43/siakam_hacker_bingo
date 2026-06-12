@@ -58,9 +58,18 @@ If `project_dir` is omitted, defaults to the current working directory.
 
 Before starting a fresh scan, check whether `<project_dir>/.siakam_out/BINGO/task-list.md` exists.
 
-**If task-list.md exists:** Read it. Skip all tasks with status `done`. Find the first task with status `pending` or `in_progress`. Jump to Step 3 (Dispatch Loop) starting from that task. Tasks marked `in_progress` were interrupted — re-run them.
+**Retry rule:** Only a definitive "file exists" result can skip retry. In every other case you MUST try a second time with a different method (different command or different tool):
 
-**If task-list.md does not exist:** Start from Step 2.
+| Result | Action |
+|--------|--------|
+| File exists | Read task-list.md and resume from Step 3 |
+| File not found (explicit, like "NOT_FOUND" or "No such file") | Try one more time with a different method |
+| No output / empty result | Try one more time with a different method |
+| Tool error | Try one more time with a different method |
+
+Only when **both attempts** confirm the file does not exist, proceed to Step 2. If both attempts produce no output or errors, do NOT proceed — report the issue to the user and stop. Never assume the file is missing based on an inconclusive check.
+
+**If task-list.md exists:** Read it. Skip all tasks with status `done`. Find the first task with status `pending` or `in_progress`. Jump to Step 3 (Dispatch Loop) starting from that task. Tasks marked `in_progress` were interrupted — re-run them.
 
 ### Step 2: Scan and Create Task List
 
